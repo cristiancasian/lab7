@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Personal</title>
+    <style>
+        body {
+            background-color: #fffaf0;
+            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            transition: all 0.5s ease-in-out;
+        }
+
+        h1 {
+            color: #d2691e;
+            font-size: 2em;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        section {
+            background-color: #fdf5e6;
+            margin: 15px auto;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 800px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease-in-out;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.5s ease-in-out;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #d2691e;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #b5651d;
+        }
+
+        .alt-viata body {
+            background-color: #1d1f33;
+            color: #e6e6fa;
+        }
+
+        .alt-viata h1, 
+        .alt-viata h2, 
+        .alt-viata p {
+            color: #f0f8ff;
+        }
+
+        .alt-viata section {
+            background-color: #2a2e4d;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .alt-viata img {
+            width: 140px;
+            height: 140px;
+            opacity: 0.9;
+            border: 5px solid #4c4c8e;
+        }
+    </style>
+</head>
+<body>
+
+    <section>
+        <h1 id="titlu">Profil Personal</h1>
+        <p><strong>Nume:</strong> <span id="nume">Casian Cristian</span></p>
+        <p><strong>Prenume:</strong> <span id="prenume">Cristian</span></p>
+    </section>
+
+    <section>
+        <h2>Poză de profil</h2>
+        <img id="poza" src="poza_profil.png" alt="Poză de profil Casian Cristian">
+    </section>
+
+    <section>
+        <h2 id="educatie-titlu">Educație</h2>
+        <p id="educatie-descriere">Îmi doresc să acumulez cunoștințe practice și teoretice care să mă pregătească pentru o carieră în domeniul tehnologic.</p>
+    </section>
+
+    <button onclick="schimbaViata()">Alta viață</button>
+
+    <script>
+        let esteAltViata = false;
+
+        function schimbaViata() {
+            esteAltViata = !esteAltViata;
+
+            if (esteAltViata) {
+                document.body.classList.add('alt-viata');
+                document.getElementById('titlu').textContent = 'Profil Profesional';
+                document.getElementById('nume').textContent = 'Inginer Software';
+                document.getElementById('educatie-titlu').textContent = 'Realizări Profesionale';
+                document.getElementById('educatie-descriere').textContent = 'Am dezvoltat aplicații software inovatoare și am participat la proiecte internaționale.';
+                document.getElementById('poza').src = 'poza_alternativa.png';
+            } else {
+                document.body.classList.remove('alt-viata');
+                document.getElementById('titlu').textContent = 'Profil Personal';
+                document.getElementById('nume').textContent = 'Casian Cristian';
+                document.getElementById('educatie-titlu').textContent = 'Educație';
+                document.getElementById('educatie-descriere').textContent = 'Îmi doresc să acumulez cunoștințe practice și teoretice care să mă pregătească pentru o carieră în domeniul tehnologic.';
+                document.getElementById('poza').src = 'poza_profil.png';
+            }
+        }
+    </script>
+
+</body>
+</html>

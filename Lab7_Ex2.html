@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Personal</title>
+    <style>
+        body {
+            background-color: #fffaf0;
+            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #d2691e;
+            font-size: 2em;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        section {
+            background-color: #fdf5e6;
+            margin: 15px auto;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 800px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #d2691e;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        input[type="email"] {
+            display: block;
+            margin: 15px auto;
+            padding: 10px;
+            width: 90%;
+            max-width: 400px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #anul-nasterii {
+            text-align: center;
+            font-size: 1.2em;
+            color: #8b4513;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <section>
+        <h1 id="titlu">Profil Personal</h1>
+        <h2>Date de identificare</h2>
+        <p><strong>Nume:</strong> Casian Cristian</p>
+        <p><strong>Prenume:</strong> Casian</p>
+        <p><strong>Email:</strong> <a href="mailto:casian.cristian@gmail.com">casian.cristian@gmail.com</a></p>
+    </section>
+
+    <section>
+        <h2>Poză de profil</h2>
+        <img src="poza_profil.png" alt="Poză de profil Casian Cristian" id="pozaProfil">
+    </section>
+
+    <section>
+        <h2>Așteptări și educație</h2>
+        <blockquote>"Îmi doresc să acumulez cunoștințe practice și teoretice care să mă pregătească pentru o carieră în domeniul tehnologic."</blockquote>
+    </section>
+
+    <section>
+        <h2>Discipline de interes</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Denumirea disciplinei</th>
+                    <th>Anul de studiu</th>
+                    <th>Link către descriere</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Programare Orientată pe Obiecte</td>
+                    <td>Anul 1</td>
+                    <td><a href="https://etti.utcluj.ro/planuri-de-invatamant.html">Descriere</a></td>
+                </tr>
+                <tr>
+                    <td>Algebră și Geometrie</td>
+                    <td>Anul 1</td>
+                    <td><a href="https://etti.utcluj.ro/planuri-de-invatamant.html">Descriere</a></td>
+                </tr>
+                <tr>
+                    <td>Fundamentele Ingineriei</td>
+                    <td>Anul 1</td>
+                    <td><a href="https://etti.utcluj.ro/planuri-de-invatamant.html">Descriere</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>Hobby-uri și activități</h2>
+        <ul>
+            <li>Fotografie</li>
+            <li>Drumeții</li>
+            <li>Citit cărți de ficțiune</li>
+        </ul>
+    </section>
+
+    <section>
+        <p id="anul-nasterii" onmouseover="calculeazaVarsta()">Anul nașterii: 2005</p>
+    </section>
+
+    <button onclick="schimbaViata()">Alta viață</button>
+
+    <script>
+        let esteAltViata = false;
+
+        function schimbaViata() {
+            esteAltViata = !esteAltViata;
+            if (esteAltViata) {
+                document.body.style.backgroundColor = "#1d1f33";
+                document.body.style.color = "#e6e6fa";
+                document.getElementById('titlu').textContent = 'Profil Profesional';
+                document.getElementById('pozaProfil').src = "poza_alternativa.png";
+            } else {
+                document.body.style.backgroundColor = "#fffaf0";
+                document.body.style.color = "#333";
+                document.getElementById('titlu').textContent = 'Profil Personal';
+                document.getElementById('pozaProfil').src = "poza_profil.png";
+            }
+        }
+
+        function calculeazaVarsta() {
+            const anulNasterii = 2005;
+            const anulCurent = new Date().getFullYear();
+            const varsta = anulCurent - anulNasterii;
+            const element = document.getElementById('anul-nasterii');
+            element.textContent = `Vârsta: ${varsta} ani`;
+        }
+    </script>
+
+</body>
+</html>
